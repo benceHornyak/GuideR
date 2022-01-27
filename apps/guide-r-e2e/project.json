@@ -1,0 +1,28 @@
+{
+  "root": "apps/guide-r-e2e",
+  "sourceRoot": "apps/guide-r-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/guide-r-e2e/cypress.json",
+        "devServerTarget": "guide-r:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "guide-r:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/guide-r-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["guide-r"]
+}

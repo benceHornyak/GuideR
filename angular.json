@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "guide-r": "apps/guide-r",
+    "guide-r-e2e": "apps/guide-r-e2e"
+  }
+}

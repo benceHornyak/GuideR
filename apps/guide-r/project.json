@@ -1,0 +1,91 @@
+{
+  "projectType": "application",
+  "root": "apps/guide-r",
+  "sourceRoot": "apps/guide-r/src",
+  "prefix": "bencehornyak",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/guide-r",
+        "index": "apps/guide-r/src/index.html",
+        "main": "apps/guide-r/src/main.ts",
+        "polyfills": "apps/guide-r/src/polyfills.ts",
+        "tsConfig": "apps/guide-r/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/guide-r/src/favicon.ico", "apps/guide-r/src/assets"],
+        "styles": ["apps/guide-r/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/guide-r/src/environments/environment.ts",
+              "with": "apps/guide-r/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "guide-r:build:production"
+        },
+        "development": {
+          "browserTarget": "guide-r:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "guide-r:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/guide-r/src/**/*.ts",
+          "apps/guide-r/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/guide-r"],
+      "options": {
+        "jestConfig": "apps/guide-r/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
