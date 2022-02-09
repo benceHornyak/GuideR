@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "data-access-appwrite": "libs/data-access-appwrite",
     "guide-r": "apps/guide-r",
     "guide-r-e2e": "apps/guide-r-e2e"
   }
