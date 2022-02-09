@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/data-access-appwrite",
+  "sourceRoot": "libs/data-access-appwrite/src",
+  "prefix": "bencehornyak",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/data-access-appwrite"],
+      "options": {
+        "jestConfig": "libs/data-access-appwrite/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/data-access-appwrite/src/**/*.ts",
+          "libs/data-access-appwrite/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["data-access"]
+}
